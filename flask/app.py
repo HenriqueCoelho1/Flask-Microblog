@@ -3,7 +3,25 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
-@app.route("/conditionals-basics")
-def render_conditionals_basics():
-    company = "Microsoft"
-    return render_template("conditional_basics.html", company=company)
+@app.route("/for-loops")
+def render_for_loop():
+    user_os = {
+        "Bob Smith": "Arch",
+        "John Silver": "Mac",
+        "Adam Mcornick": "Ubuntu",
+        "Leo Camaro": "Windows",
+    }
+    return render_template("for_loops.html", user_os=user_os)
+# def render_for_loop():
+#     planets = [
+#         "Mercury",
+#         "Venus",
+#         "Mars",
+#         "Pluto",
+#         "Jupiter",
+#         "Saturn",
+#         "Uranus",
+#         "Neptune"
+#     ]
+
+#     return render_template("for_loops.html", planets=planets)
