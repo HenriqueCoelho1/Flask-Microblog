@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Conditionals</h1>
+    <h2>Basic comparisons</h1>
+    
+        <br />
+    {% if company == "Apple" %}
+    <h3>Apple products</h3>
+
+    <ul>
+        <li>Iphone</li>
+        <li>Ipad</li>
+        <li>Ipod</li>
+    </ul>
+
+    <br />
+    {% elif company == "Microsoft" %}
+    <h3>Microsoft products</h3>
+    
+    
+    <ul>
+        <li>Windows</li>
+        <li>X-box</li>
+        <li>Office</li>
+    </ul>
+    {% else %}
+    <p>No company with this name. {company}</p>
+    {% endif %}
+    
+</body>
+</html>
