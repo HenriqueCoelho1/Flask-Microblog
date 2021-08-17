@@ -30,15 +30,17 @@
             </form>
         </section>
         <section>
+            {% for entry in entries %}
             <article class="entry">
                 <div>
-                    <h2 class="entry__title">Recent Posts</h2>
-                    <time class="entry__date" datetime="12-08-2020">Aug 12</time>
+                    <h2 class="entry__title">{{ entry[0] | truncate(30, true) }}</h2>
+                    <time class="entry__date" datetime="{{ entry[1] }}"> {{ entry[2] }}</time>
                 </div>
                 <p class="entry__content">
-                    Today I Couldn't do much programming, but that's ok! Can't be too awesome
+                    {{ entry[0] }}
                 </p>
             </article>
+            {% endfor %}
 
         </section>
     </main>
