@@ -1,27 +1,15 @@
-from flask import Flask, render_template
+import datetime
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
+entries = []
 
-@app.route("/for-loops")
-def render_for_loop():
-    user_os = {
-        "Bob Smith": "Arch",
-        "John Silver": "Mac",
-        "Adam Mcornick": "Ubuntu",
-        "Leo Camaro": "Windows",
-    }
-    return render_template("for_loops.html", user_os=user_os)
-# def render_for_loop():
-#     planets = [
-#         "Mercury",
-#         "Venus",
-#         "Mars",
-#         "Pluto",
-#         "Jupiter",
-#         "Saturn",
-#         "Uranus",
-#         "Neptune"
-#     ]
 
-#     return render_template("for_loops.html", planets=planets)
+@app.route("/", methods=["GET", "POST"])
+def home():
+    if request.method == "POST":
+        entry_content = request.form.get("content")
+        formatted_date = datetime.datetime.today().strftime("%Y-%m-%d")
+        entries.append((entry_content, formatted_date))
+    return render_template("index.html", entries=entries)
